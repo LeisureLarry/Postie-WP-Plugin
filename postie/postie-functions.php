@@ -552,6 +552,7 @@ function PostToDB($details,$isReply, $postToDb=true, $customImageField=false) {
     //$_POST['publish'] = true; //Added to make subscribe2 work - it will only handle it if the global varilable _POST is set
     if (!$isReply) {
       $post_ID = wp_insert_post($details);
+      do_action('postie_post_meta', $post_ID, $details);
     } else {
       $comment = array(
       'comment_author'=>$details['comment_author'],
