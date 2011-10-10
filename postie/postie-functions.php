@@ -339,7 +339,7 @@ function checkReply(&$subject) {
     $subject=trim($matches[2]);
     // strip out category info into temporary variable
     $tmpSubject=$subject;
-    if ( preg_match('/(.+): (.*)/', $tmpSubject, $matches))  {
+    if ( preg_match('/([^:]+): (.*)/', $tmpSubject, $matches))  {
       $tmpSubject = trim($matches[2]);
       $matches[1] = array($matches[1]);
     }
@@ -1972,7 +1972,7 @@ function GetPostCategories(&$subject, $defaultCategory) {
     $post_categories = array();
     $matches = array();
     //try and determine category
-    if ( preg_match('/(.+): (.*)/', $subject, $matches))  {
+    if ( preg_match('/([^:]+): (.*)/', $subject, $matches))  {
         $subject = trim($matches[2]);
         $matches[1] = array($matches[1]);
     }
